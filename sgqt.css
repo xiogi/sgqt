@@ -64,6 +64,7 @@
     background-color: black;
 }
 .nav {
+    margin-top: -1px;
     position: relative;
     width: 100%;
     height: 60px;
@@ -199,52 +200,53 @@
 }
 
 /* 轮播图样式结束 */
+/*下拉列表开始*/
 /* 下拉列表样式开始 */
 .nav-list {
-    position: fixed; /* 设置为固定定位 */
-    top: 175px; /* 距离顶部的距离，根据 cdl.png 的高度调整 */
+    position: fixed; /* 使用 fixed 定位 */
+    margin-top: -3px;
     left: 0;
-    width: 100%; /* 宽度设置为100%，确保覆盖整个屏幕宽度 */
-    display: none;
+    width: 1920px; /* 宽度始终为 100% */
     height: 190px;
+    display: none; /* 默认不显示 */
     background-size: cover;
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
     z-index: 100;
-    background-color: rgba(0, 0, 0, 0.8); /* 添加半透明背景，提升视觉效果 */
+    background-color: rgba(0, 0, 0, 0.8); /* 半透明背景 */
     padding: 10px;
     box-sizing: border-box;
 }
 
 .has-dropdown {
-    position: relative;
+    position: relative; /* 确保 .nav-list 相对于 .has-dropdown 定位 */
 }
 
 .has-dropdown:hover .nav-list {
-    display: block;
+    display: block; /* 鼠标悬停时显示 */
 }
 /*下拉列表结束*/
 /* 产品图片样式 */
 .product-images {
     display: flex;
-    justify-content: space-between; /* 使用 space-between 确保图片均匀分布 */
+    justify-content: space-between;
     padding: 20px;
     margin-right: 100px;
     margin-left: 100px;
     flex-wrap: wrap;
-    gap: 0; /* 确保图片之间没有间距 */
+    gap: 0;
 }
 
 .product-item {
-    width: calc(20% - 10px); /* 每张图片占20%宽度，减去间距 */
-    margin: 0; /* 移除所有间距 */
+    width: calc(20% - 10px);
+    margin: 0;
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s;
 }
 
 .product-item img {
-    width: 115px; /* 图片宽度保持不变 */
+    width: 115px;
     height: auto;
     border-radius: 5px;
     border: 2px solid transparent;
@@ -253,10 +255,20 @@
 .product-item:hover img {
     border-color: #a27300;
 }
-
-/*banner样式结束*/
-.contest {
-    width: 100%;
-    height: 1000px;
-    background-color: black;
+/* 添加一个类用于固定导航栏 */
+.nav.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    z-index: 1000;
+    background: url("img/cdl.png") no-repeat center top;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
 }
+.contest {
+    width: 1920px;
+    height: 1000px;
+    background-color: #000;
+}
+/*banner样式结束*/
