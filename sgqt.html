@@ -154,7 +154,6 @@
 <div class="contest">
 
 </div>
-</body>
 <script>
     // 获取音乐图标和背景音乐
     const musicIcon = document.querySelector('.music-icon');
@@ -251,5 +250,26 @@
 
     // 自动轮播
     let slideInterval = setInterval(nextSlide, 10000);
+
+    // 监听滚动事件
+    window.addEventListener('scroll', () => {
+        // 获取 header 的高度
+        const header = document.querySelector('.header');
+        const headerHeight = header.offsetHeight;
+
+        // 获取 nav 的高度
+        const nav = document.querySelector('.nav');
+        const navHeight = nav.offsetHeight;
+
+        // 判断页面是否滚动超过 header 的高度
+        if (window.scrollY > headerHeight) {
+            // 如果超过，添加 fixed 类
+            nav.classList.add('fixed');
+        } else {
+            // 如果没有超过，移除 fixed 类
+            nav.classList.remove('fixed');
+        }
+    });
 </script>
+</body>
 </html>
